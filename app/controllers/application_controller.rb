@@ -21,8 +21,10 @@ class ApplicationController < ActionController::Base
   end
 
   def user_jwt
-    if @jwt && @user_json = user_json
+    if @jwt && @user
+      @user_json = user_json
       @user_json[:jwt] = @jwt
+      @user_json
     end
   end
 end

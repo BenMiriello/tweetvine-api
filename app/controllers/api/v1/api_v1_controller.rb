@@ -1,5 +1,4 @@
-module Api::V1
-  class ApiV1Controller < ApplicationController
+class ApiV1Controller < ApplicationController
     before_action :authorize
     
     def authorize
@@ -22,4 +21,3 @@ module Api::V1
       end
     end
   end
-end
