@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   constraints subdomain: "api" do
     scope module: "api" do
       namespace :v1 do
+        get "/test", to: "users#test"
         post "/signup", to: "users#create"
         patch "/change_email", to: "users#change_email"
         patch "/change_password", to: "users#change_password"
