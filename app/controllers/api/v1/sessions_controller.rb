@@ -21,7 +21,7 @@ module Api::V1
 
     # DELETE /logout
     def logout
-      cookies.delete("_tweetvine")
+      cookies.delete("_biblio")
     end
   end
 end

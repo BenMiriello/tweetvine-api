@@ -20,8 +20,8 @@ Rails.application.routes.draw do
         patch "/change_name", to: "users#change_name"
         delete "/delete_account", to: "users#destroy"
 
-        post "/login", to: "sessions#create"
-        get "/check_logged_in", to: "sessions#check_logged_in"
+        post "/login", to: "auth#create"
+        get "/check_logged_in", to: "auth#check_logged_in"
       end
     end
   end

@@ -8,23 +8,19 @@ class ApplicationController < ActionController::Base
     }
   end
 
-  def user_json(errors = nil)
-    user_messages = @user ? @user.errors.full_messages : nil
-    if errors ||= user_messages[0] ? user_messages : nil
-      {
-        user: user_serialized,
-        errors: errors,
-      }
-    else
-      { user: user_serialized }
-    end
-  end
+  def user_json
+    response_obj = {}
 
-  def user_jwt
-    if @jwt && @user
-      @user_json = user_json
-      @user_json[:jwt] = @jwt
-      @user_json
+    user_messages = @user ? @user.errors.full_messages : nil
+    if user_messages && @errors ||= user_messages[0] ? user_messages : nil
+      response_obj[:errors] = @errors
     end
+
+    if @user && @jwt
+      response_obj[:user] = user_serialized
+      response_obj[:jwt] = @jwt
+    end
+
+    response_obj
   end
 end
