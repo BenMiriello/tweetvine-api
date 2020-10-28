@@ -8,7 +8,7 @@ module Api::V2
       if @user && @jwt = encode_token({ user_id: @user.id })
         render json: user_json, status: :accepted
       else
-        render json: {errors: @user.errors.full_messages}, status: :unauthorized
+        render json: {errors: ['Invalid email or password']}, status: :unauthorized
       end
     end
 
