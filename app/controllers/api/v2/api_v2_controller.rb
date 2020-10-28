@@ -9,7 +9,7 @@ module Api::V2
     def auth_header
       request.headers['Authorization']
     end
-    
+
     def decoded_token
       if auth_header
         token = auth_header.split(' ')[1]
@@ -33,7 +33,7 @@ module Api::V2
     end
 
     def authorized
-      render json: { message: 'Not authorized.' }, status: :unauthorized unless logged_in?
+      render json: { errors: ['Not authorized.'] }, status: :unauthorized unless logged_in?
     end
   end
 end

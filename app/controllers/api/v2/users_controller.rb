@@ -21,9 +21,9 @@ module Api::V2
           render json: user_json, status: :ok
       else
         @user = user_tmp
-        @errors = @user.errors.full_messages[0] ? @user.errors.full_messages :
+        errors = @user.errors.full_messages[0] ? @user.errors.full_messages :
           ['Unable to change name.']
-        render json: user_json, status: :not_acceptable
+        render json: {errors: errors}, status: :not_acceptable
       end
     end
 
@@ -35,9 +35,9 @@ module Api::V2
           render json: user_json, status: :ok
       else
         @user = user_tmp
-        @errors = @user.errors.full_messages[0] ? @user.errors.full_messages :
+        errors = @user.errors.full_messages[0] ? @user.errors.full_messages :
           ['Unable to update email.']
-        render json: user_json, status: :not_acceptable
+        render json: {errors: errors}, status: :not_acceptable
       end
     end
 
@@ -51,9 +51,9 @@ module Api::V2
             render json: user_json, status: :ok
       else
         @user = user_tmp
-        @errors = @user.errors.full_messages[0] ? @user.errors.full_messages :
+        errors = @user.errors.full_messages[0] ? @user.errors.full_messages :
           ['Unable to update password.']
-        render json: user_json, status: :not_acceptable
+        render json: {errors: errors}, status: :not_acceptable
       end
     end
 
