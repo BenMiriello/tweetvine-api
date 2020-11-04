@@ -71,6 +71,8 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     equalizer (0.0.11)
     erubi (1.9.0)
+    ethon (0.12.0)
+      ffi (>= 1.3.0)
     ffi (1.13.1)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
@@ -181,6 +183,8 @@ GEM
       multipart-post (~> 2.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
+    typhoeus (1.4.0)
+      ethon (>= 0.9.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unf (0.1.4)
@@ -216,6 +220,7 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.2)
   turbolinks (~> 5)
   twitter
+  typhoeus
   tzinfo-data
   web-console (>= 3.3.0)
   webpacker (~> 4.0)
